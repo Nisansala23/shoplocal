@@ -2,7 +2,7 @@
 frontend:
   image:
     repository: nisansala23/shoplocal-frontend
-    tag: latest
+    tag: "4"
     pullPolicy: Always
   replicas: 1
   port: 5000
@@ -16,7 +16,7 @@ frontend:
 products:
   image:
     repository: nisansala23/shoplocal-products
-    tag: latest
+    tag: "4"
     pullPolicy: Always
   replicas: 1
   port: 5001
