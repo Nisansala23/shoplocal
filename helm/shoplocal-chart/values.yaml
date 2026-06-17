@@ -1,0 +1,26 @@
+# ── Frontend Service ──────────────────────────
+frontend:
+  image:
+    repository: nisansala23/shoplocal-frontend
+    tag: latest
+    pullPolicy: Always
+  replicas: 1
+  port: 5000
+  service:
+    type: NodePort
+    port: 80
+    targetPort: 5000
+    nodePort: 30001
+
+# ── Products Service ──────────────────────────
+products:
+  image:
+    repository: nisansala23/shoplocal-products
+    tag: latest
+    pullPolicy: Always
+  replicas: 1
+  port: 5001
+  service:
+    type: ClusterIP
+    port: 80
+    targetPort: 5001

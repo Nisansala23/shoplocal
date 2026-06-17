@@ -1,1 +1,48 @@
+# Windows WSL
 *:Zone.Identifier
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Environment variables (never push secrets!)
+.env
+.env.local
+.env.*.local
+
+# Terraform (never push state - contains sensitive data!)
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+*.tfvars
+crash.log
+
+# IDE
+.vscode/
+.idea/
+
+# Vim swap files
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Docker
+.docker/
