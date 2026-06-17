@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+
+  products:
+    build: ./products
+    container_name: products-service
+    ports:
+      - "5001:5001"
+
+  frontend:
+    build: ./frontend
+    container_name: frontend-service
+    ports:
+      - "5000:5000"
+    environment:
+      - PRODUCTS_SERVICE_URL=http://products:5001
+    depends_on:
+      - products
