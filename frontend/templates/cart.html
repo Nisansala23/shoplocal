@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+  .page-header {
+    background: #1a73e8; color: #fff;
+    padding: 32px; margin-bottom: 32px;
+  }
+  .page-header h1 { font-size: 28px; }
+  .container { padding: 0 32px 48px; max-width: 700px; margin: 0 auto; }
+  .cart-item {
+    background: #fff; border-radius: 12px;
+    padding: 16px 20px; margin-bottom: 12px;
+    display: flex; align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .item-name  { font-size: 16px; font-weight: 600; }
+  .item-price { font-size: 16px; color: #1a73e8; font-weight: 600; }
+  .total-box {
+    background: #fff; border-radius: 12px;
+    padding: 20px; margin-top: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: flex; justify-content: space-between;
+    align-items: center;
+  }
+  .total-label { font-size: 18px; font-weight: 600; }
+  .total-price { font-size: 24px; font-weight: 700; color: #1a73e8; }
+  .empty {
+    text-align: center; padding: 64px 32px;
+    color: #666;
+  }
+  .empty h2 { font-size: 24px; margin-bottom: 16px; }
+</style>
+
+<div class="page-header">
+  <h1>🛒 Your Cart</h1>
+  <p style="opacity:0.9; margin-top:8px;">{{ cart|length }} items</p>
+</div>
+
+<div class="container">
+  {% if cart|length == 0 %}
+  <div class="empty">
+    <h2>Your cart is empty!</h2>
+    <p style="margin-bottom:24px;">Add some products to get started</p>
+    <a href="/products" class="btn btn-primary">Shop Now</a>
+  </div>
+  {% else %}
+    {% for item in cart %}
+    <div class="cart-item">
+      <div>
+        <div class="item-name">{{ item.name }}</div>
+        <div style="font-size:14px; color:#666;">{{ item.desc }}</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:16px;">
+        <span class="item-price">${{ item.price }}</span>
+        <a href="/cart/remove/{{ loop.index0 }}" class="btn btn-danger">Remove</a>
+      </div>
+    </div>
+    {% endfor %}
+
+    <div class="total-box">
+      <span class="total-label">Total</span>
+      <span class="total-price">${{ total }}</span>
+    </div>
+
+    <div style="text-align:center; margin-top:24px;">
+      <a href="/products" class="btn btn-primary">Continue Shopping</a>
+    </div>
+  {% endif %}
+</div>
+
+{% endblock %}

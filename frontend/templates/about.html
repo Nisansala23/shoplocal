@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+  .page-header {
+    background: #1a73e8; color: #fff;
+    padding: 32px; margin-bottom: 32px;
+  }
+  .page-header h1 { font-size: 28px; }
+  .container { padding: 0 32px 48px; max-width: 700px; margin: 0 auto; }
+  .card {
+    background: #fff; border-radius: 12px;
+    padding: 32px; margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .card h2 { font-size: 20px; margin-bottom: 12px; color: #1a73e8; }
+  .card p  { font-size: 15px; color: #444; line-height: 1.7; }
+  .stack { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  .tag {
+    background: #e8f0fe; color: #1a73e8;
+    padding: 6px 14px; border-radius: 20px;
+    font-size: 13px; font-weight: 500;
+  }
+</style>
+
+<div class="page-header">
+  <h1>About ShopLocal</h1>
+</div>
+
+<div class="container">
+  <div class="card">
+    <h2>What is ShopLocal?</h2>
+    <p>ShopLocal is a simple microservices e-commerce app built for learning DevOps concepts like Docker, Kubernetes, ArgoCD, and CI/CD pipelines.</p>
+  </div>
+
+  <div class="card">
+    <h2>Tech Stack</h2>
+    <div class="stack">
+      <span class="tag">Python Flask</span>
+      <span class="tag">Docker</span>
+      <span class="tag">Kubernetes</span>
+      <span class="tag">Helm</span>
+      <span class="tag">ArgoCD</span>
+      <span class="tag">GitHub Actions</span>
+      <span class="tag">Terraform</span>
+      <span class="tag">Floci</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Architecture</h2>
+    <p>The app is split into 2 microservices — a Frontend service that renders the UI and a Products service that provides product data via REST API. Both run as separate pods inside a local Kubernetes cluster.</p>
+  </div>
+</div>
+
+{% endblock %}
